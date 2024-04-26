@@ -15,7 +15,7 @@ type Server struct {
 }
 
 func New(config *config.Config, logger *slog.Logger) *Server {
-	handlers := handlers.NewHandlers(config, logger)
+	handlers := handlers.NewHandlers(logger)
 	return &Server{
 		config:   config,
 		logger:   logger,
@@ -25,7 +25,7 @@ func New(config *config.Config, logger *slog.Logger) *Server {
 
 func (s *Server) setRoutes() {
 	http.HandleFunc("/endpoints", s.handlers.GetEndpoints)
-	http.HandleFunc("/status", s.handlers.Status)
+	http.HandleFunc("/status", s.handlers.GetStatus)
 }
 
 func (s *Server) Start() error {
