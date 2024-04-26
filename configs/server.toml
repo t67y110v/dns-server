@@ -1,0 +1,2 @@
+bind_addr=":4000"
+base_path="localhost"
