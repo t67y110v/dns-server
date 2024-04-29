@@ -30,9 +30,9 @@ func New(config *config.Config, logger *slog.Logger) *Server {
 func (s *Server) setRoutes() {
 	s.router.Use(middleware.Logger)
 	s.router.Route("/endpoints", func(r chi.Router) {
+		r.Post("/", s.handlers.PostEndpoints)
 		r.Route("/{target}", func(r chi.Router) {
 			r.Get("/", s.handlers.GetEndpoints)
-			r.Post("/", s.handlers.PostEndpoints)
 			r.Patch("/", s.handlers.PatchEndpoints)
 		})
 	})

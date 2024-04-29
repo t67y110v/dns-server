@@ -7,7 +7,7 @@ import (
 	"github.com/t67y110v/dns-server/internal/models"
 )
 
-func GetServices() []string {
+func GetServiceNames() []string {
 	services := &models.AllServices{}
 	_, err := toml.DecodeFile("configs/endpoints.toml", &services)
 	if err != nil {

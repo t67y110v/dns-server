@@ -17,6 +17,6 @@ type Endpoint struct {
 }
 
 type VW struct {
-	Version string `toml:"version"`
-	Weight  string `toml:"weight"`
+	Version string `json:"version" toml:"version"`
+	Weight  string `json:"weight" toml:"weight"`
 }

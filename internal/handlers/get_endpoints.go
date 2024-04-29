@@ -13,7 +13,7 @@ func (h *Handlers) GetEndpoints(w http.ResponseWriter, req *http.Request) {
 	h.logger.Info("new request with queryy " + req.URL.RawQuery)
 	target := chi.URLParam(req, "target")
 
-	services := services.GetServices()
+	services := services.GetServiceNames()
 	for _, s := range services {
 		if s == target {
 			configuration := endpoints.GetServiceConfiguration(target)
