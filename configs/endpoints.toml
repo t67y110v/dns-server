@@ -1,0 +1,47 @@
+
+[[service]]
+    service_configs = "{\"loadBalancingPolicy\": \"test\"}"
+    service_name = "hello_world_server"
+    [[service.endpoints]]
+        address = "127.0.0.1:8080"
+        version = "v1"
+        weight = "35"
+    [[service.endpoints]]
+        address = "127.0.0.1:8090"
+        version = "v2"
+        weight = "34"
+    [[service.endpoints]]
+        address = "127.0.0.1:8095"
+        version = "v2"
+        weight = "67"
+    [[service.version_weights]]
+        version = "v1"
+        weight = "10"
+    [[service.version_weights]]
+        version = "v2"
+        weight = "90"
+
+[[service]]
+    service_configs = "{\"loadBalancingPolicy\": \"test\"}"
+    service_name = "service_number_two"
+    [[service.endpoints]]
+        address = "127.0.0.1:8080"
+        version = "v1"
+        weight = "35"
+
+    [[service.endpoints]]
+        address = "127.0.0.1:8090"
+        version = "v2"
+        weight = "34"
+    [[service.endpoints]]
+        address = "127.0.0.1:8095"
+        version = "v2"
+        weight = "67"
+    [[service.version_weights]]
+        version = "v1"
+        weight = "10"
+
+    [[service.version_weights]]
+        version = "v2"
+        weight = "90"
+

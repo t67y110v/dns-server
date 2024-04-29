@@ -1,0 +1,23 @@
+service_configs = "service_configs"
+    [[endpoints]]
+    address = "address.com"
+    version = "v1"
+    weight = "10"
+
+    [[endpoints]]
+    address = "address2.com"
+    version = "v2"
+    weight = "11"
+    
+    [[endpoints]]
+    address = "address3.com"
+    version = "v3"
+    weight = "12"
+
+    [[version_weights]]
+    version =  "v1" 
+    weight =  "10"
+    
+    [[version_weights]]
+    version = "v2"
+	weight = "90"
