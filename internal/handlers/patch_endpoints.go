@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/t67y110v/dns-server/internal/endpoints"
 	"github.com/t67y110v/dns-server/internal/models"
+	"github.com/t67y110v/dns-server/internal/usecase"
 )
 
 func (h *Handlers) PatchEndpoints(w http.ResponseWriter, req *http.Request) {
@@ -18,7 +18,7 @@ func (h *Handlers) PatchEndpoints(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	err = endpoints.UpdateEndpoints(target, service)
+	err = usecase.UpdateEndpoints(target, service)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return

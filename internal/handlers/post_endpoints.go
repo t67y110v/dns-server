@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/t67y110v/dns-server/internal/endpoints"
 	"github.com/t67y110v/dns-server/internal/models"
+	"github.com/t67y110v/dns-server/internal/usecase"
 )
 
 func (h *Handlers) PostEndpoints(w http.ResponseWriter, req *http.Request) {
@@ -19,7 +19,7 @@ func (h *Handlers) PostEndpoints(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	err = endpoints.SetEndpoints(target, ep)
+	err = usecase.SetEndpoints(target, ep)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

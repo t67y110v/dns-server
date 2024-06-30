@@ -1,15 +1,15 @@
 
 [[service]]
-    service_configs = "{\"loadBalancingPolicy\": \"test\"}"
-    service_name = "hello_world_server"
+    service_configs = "{\"loadBalancingPolicy\": \"mesh\"}"
+    service_name = "test-mesh-first"
     [[service.endpoints]]
         address = "127.0.0.1:8080"
         version = "v1"
-        weight = "35"
+        weight = "0"
     [[service.endpoints]]
         address = "127.0.0.1:8090"
         version = "v2"
-        weight = "34"
+        weight = "33"
     [[service.endpoints]]
         address = "127.0.0.1:8095"
         version = "v2"

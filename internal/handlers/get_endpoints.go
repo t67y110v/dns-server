@@ -5,18 +5,17 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/t67y110v/dns-server/internal/endpoints"
 	"github.com/t67y110v/dns-server/internal/services"
+	"github.com/t67y110v/dns-server/internal/usecase"
 )
 
 func (h *Handlers) GetEndpoints(w http.ResponseWriter, req *http.Request) {
-	h.logger.Info("new request with queryy " + req.URL.RawQuery)
 	target := chi.URLParam(req, "target")
 
 	services := services.GetServiceNames()
 	for _, s := range services {
 		if s == target {
-			configuration := endpoints.GetServiceConfiguration(target)
+			configuration := usecase.GetServiceConfiguration(target)
 			marshalledResponse, err := json.Marshal(configuration)
 			if err != nil {
 				h.logger.Error("unmarshall response error", err)
